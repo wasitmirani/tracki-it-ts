@@ -1,0 +1,57 @@
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
+    color: #fff;
+    background-color: #111111 !important;
+    font-family: 'Tw Cen MT' !important;
+}
+
+.nav-pills .nav-link:hover {
+    color: #111111;
+}
+
+.trck_btn {
+    z-index: 2;
+    color: #fff !important;
+    overflow: hidden;
+    opacity: 1;
+    line-height: 1.42;
+    text-decoration: none;
+    text-align: center;
+    white-space: normal;
+    font-size: 13px;
+    text-transform: uppercase;
+    font-family: 'Tw Cen MT';
+    letter-spacing: .3em;
+    display: inline-block;
+    padding: 11px 20px;
+    margin: 0;
+    width: auto;
+    min-width: 90px;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    user-select: none;
+    -webkit-appearance: none;
+    border-radius: var(--buttonRadius);
+    background: #111111;
+    height: 40px;
+}
+
+.border-radius-right {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.border-radius-left {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.border-nav {
+    border: 1px solid #111111;
+    border-radius: 0px !important;
+    font-size: 13px;
+    text-transform: uppercase;
+    font-family: 'Tw Cen MT';
+    letter-spacing: .3em;
+}
