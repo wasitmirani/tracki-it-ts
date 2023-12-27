@@ -5,7 +5,7 @@ export const HistoryComponent: React.FC<any> = (props) => {
     console.log("props", props.data);
     const [order_data] = useState<any>(props.data.order);
     const [order_history] = useState<any>(props.data.order_history.slice().reverse());
-
+    const sub_total = order_data.line_items.reduce((accumulator:any, item:any) => accumulator + (item.price * item.quantity), 0);
     const checkStatus = (status: string) => {
 
         const statusArray = ["draft", "pick", "pack", "ship", "in_transit", "delivered"];
@@ -87,7 +87,34 @@ export const HistoryComponent: React.FC<any> = (props) => {
                                                             <td className="text-right">{(item.price * item.quantity).toFixed(2)}</td>
                                                         </tr>
                                                     ))}
-
+                                                    <tr>
+                                                    <td className="no-line"></td>
+                                                    <td className="no-line"></td>
+                                                    <td className="no-line"></td>
+                                                    <td className="no-line text-center"><strong>Subtotal: </strong></td>
+                                                    <td className="no-line text-right"> { sub_total}</td>
+                                                    </tr>
+                                                    <tr>
+                                                    <td className="no-line"></td>
+                                                    <td className="no-line"></td>
+                                                    <td className="no-line"></td>
+                                                    <td className="no-line text-center"><strong>Shipping Charges: </strong></td>
+                                                    <td className="no-line text-right"> { order_data.shipping_fee}</td>
+                                                    </tr>
+                                                    <tr>
+                                                    <td className="no-line"></td>
+                                                    <td className="no-line"></td>
+                                                    <td className="no-line"></td>
+                                                    <td className="no-line text-center"><strong>Discount:	 </strong></td>
+                                                    <td className="no-line text-right"> { order_data.order_discount}</td>
+                                                    </tr>
+                                                    <tr>
+                                                    <td className="no-line"></td>
+                                                    <td className="no-line"></td>
+                                                    <td className="no-line"></td>
+                                                    <td className="no-line text-center"><strong>Total: </strong></td>
+                                                    <td className="no-line text-right"> { order_data.total_price}</td>
+                                                    </tr>
                                                 </tbody>
                                             </table>
                                         </div>
