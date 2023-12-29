@@ -8,7 +8,7 @@ export const Home: React.FC = () => {
         justifyContent: 'center',
     };
     const [order, setOrder] = useState<any>(null); // Replace 'any' with the actual type of your order data
-    const company_guid = "72e72da7-17ce-4fe1-b78c-4782bd745da8";
+    const company_guid = "30741123-4b0d-4c5d-bd7a-721d7de8f3ce";
     const host_url="https://dashboard-api-dev.storfox.com/v1";
     const [order_number, setOrderNumber] = useState<string>('');
     const [is_error,setIsError] = useState<boolean> (false);
