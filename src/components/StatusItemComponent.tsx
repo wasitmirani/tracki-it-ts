@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 export const StatusItemComponent: React.FC<any> = (props)=>{
-    const [item] = useState<any>(props.item);
+    const [item, setItem] = useState<any>(props.item);
+    
     const active=props.active;
     console.log("Active", active);
     const setDateFormat=(date:any)=>{
@@ -82,6 +83,11 @@ export const StatusItemComponent: React.FC<any> = (props)=>{
                     break;
             }
     }
+    // / useEffect to update state when props.data changes
+        useEffect(() => {
+            // Update orderData and orderHistory when props.data changes
+            setItem(props.item);
+        }, [props.item]); // Only re-run the effect if props.data changes
     return (
         <div className={'tracking-item '+ active}>
         <div className={'tracking-icon '+active}>

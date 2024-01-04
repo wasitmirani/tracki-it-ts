@@ -3,8 +3,8 @@ import { StatusItemComponent } from './StatusItemComponent';
 
 export const HistoryComponent: React.FC<any> = (props) => {
     console.log("props", props.data);
-    const [order_data] = useState<any>(props.data.order);
-    const [order_history] = useState<any>(props.data.order_history.slice().reverse());
+    const [order_data,setOrderData] = useState<any>(props.data.order);
+    const [order_history,setOrderHistory] = useState<any>(props.data.order_history.slice().reverse());
     const sub_total = order_data.line_items.reduce((accumulator:any, item:any) => accumulator + (item.price * item.quantity), 0);
     const checkStatus = (status: string) => {
 
@@ -15,7 +15,14 @@ export const HistoryComponent: React.FC<any> = (props) => {
         } else {
             return false;
         }
+        
     }
+     // useEffect to update state when props.data changes
+        useEffect(() => {
+            // Update orderData and orderHistory when props.data changes
+            setOrderData(props.data.order);
+            setOrderHistory(props.data.order_history.slice().reverse());
+        }, [props.data]); // Only re-run the effect if props.data changes
     return (
         <div className="tab-content" id="pills-tabContent">
 
